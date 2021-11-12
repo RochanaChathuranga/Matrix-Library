@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from matrixlms.views import index, LoginPage, MemberRegisterPage, MemberUser
+from matrixlms.views import index, LoginPage, MemberRegisterPage, MemberUser, home
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,7 +26,15 @@ urlpatterns = [
     path('MemberRegisterPage/index.html',index),
     path('MemberRegisterPage/LoginPage.html',LoginPage),
     path('LoginPage/', LoginPage),
+    path('MemberRegisterPage/MemberRegisterPage.html', MemberRegisterPage),
+    path('',home,name='home'),
     path('MemberRegisterPage/', MemberRegisterPage),
     path('MemberUser/', MemberUser),
-    path('logout/', index)
+    path('LoginPage/LoginPage.html',LoginPage),
+    path('logout/', index),
+    path ('LoginPage/MemberUser.html',MemberUser, name='Home'),
+    path('LoginPage/MemberHomePage.html',index),
+    path('ReserveBook/', MemberUser, name='Home')
 ]
+
+urlpatterns += staticfiles_urlpatterns()

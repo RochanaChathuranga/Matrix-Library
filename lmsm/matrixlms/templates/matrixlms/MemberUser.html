@@ -32,7 +32,7 @@
   }
   .jumbotron {
     background-color: #02A4D3;
-    color: #fff;
+    color: rgb(10, 2, 2);
     padding: 100px 25px;
     font-family: Montserrat, sans-serif;
   }
@@ -222,11 +222,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <img src="Icons/HomeLogo2.jpg" width="200" height="63" style=" box-shadow: 0 0 20px 20px white inset " >
+        {% load static %} <img src="{% static 'matrixlms/icons/HomeLogo2.jpg' %}" width="200" height="63" style=" box-shadow: 0 0 20px 20px white inset " >
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-          <li><a href="MemberHomePage.html">HOME</a></li>
+          
           <li><a href="#myPage">My Profile</a></li>
           <li><a href="#borrowings">Borrowings</a></li>
           <li><a href="#history">History</a></li>
@@ -238,10 +238,10 @@
 </nav>
 
 <div class="jumbotron text-center">
-    <h1> <img src="Icons/300.gif" width="150" height="150"> </h1>
+    <h1> <img src="{% static 'matrixlms/icons/300.gif' %}" width="150" height="150"> </h1>
 
-    <h3>Hi, {{ request.session.email }}</h3><br> <h2>{{ request.session.loginas }}</h2> <h2>{{ request.session.password }}</h2>
-  <form>
+    <h3 style="color:white;">Hello {{request.user.first_name}}</h3><br>
+  <!-- <form>
         <table border="0" align="center" > <tr>
                 <td style=" padding-right: 20px; padding-left: 20px;"><input type="radio" id="BookTitle" name="SearchKey" value="1">
                     <label for="html">Search by Title</label> </td>
@@ -249,19 +249,72 @@
                     <label for="css">Search by Author</label></td>
                 <td style=" padding-right:  20px; padding-left: 20px;"><input type="radio" id="BookCategory" name="SearchKey" value="3">
                     <label for="javascript">Search by Category</label></td></tr>
-        </table>
-       <div class="input-group">
-      <input type="text" class="form-control" size="50" placeholder="Search a book" required>
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-danger">Search</button>
-      </div>
+        </table> -->
+
+      
+        <div class="row">
+          <div class = "col">
+            <div class = "card card-body">
+              
+              
+              <form method = "get" style="color:white; cell-spacing:10px;">{{myFilter.form}}
+                  
+              </tb><button class ="btn btn-primary" type = "submit">
+                 Search
+                </button>
+              
+              
+              </form>
+            </div>
+          </div>
+        </div>
     </div>
+    
   </form>
+  
 </div>
 
-<div id="pricing" class="container-fluid">
 
-  <div class="row slideanim">
+
+
+
+<div id="pricing" class="container-fluid">
+  <div class ="card card-body">
+    <table class="table">
+      <tr>
+        <th> ISBN</th>
+        <th> Name</th>
+        <th> Author</th>
+        <th> Category</th>
+        <th> Description</th>
+        <th> Reservations </th>
+
+      </tr>
+
+      {% for i in books%}
+        <form action="/ReserveBook/" method="POST">{% csrf_token %}
+        <tr>
+            <td>{{i.isbn}}</td>
+          <td>{{i.name}}</td>
+          <td>{{i.author}}</td>
+          <td>{{i.category}}</td>
+          <td>{{i.description}}</td>  
+          <td>
+              <input type="hidden" name="userid" value="{{request.user.id}}" >
+              <input type="hidden" name="isbn" value="{{i.isbn}}" >
+              <button class = "btn btn-sm btn-danger" type="submit">Reserve</button></td>
+        </tr>
+        </form>
+      {% endfor %}
+
+
+    </table>
+  </div>
+
+  
+
+
+  <!-- <div class="row slideanim">
     <div class="col-sm-4 col-xs-12">
       <div class="panel panel-default text-center">
           <div class="panel-heading" style=" height: 320px; overflow: hidden;">
@@ -277,8 +330,8 @@
           <h5 style=" text-align: justify; ">On his 11th birthday, Harry receives a letter inviting him to study magic at the Hogwarts School of Witchcraft and Wizardry. Harry discovers that not only is he a wizard, but he is a famous one. He meets two best friends, Ron Weasley and Hermione Granger, and makes his first enemy, Draco Malfoy.</h5>
           <button class="btn btn-lg">Reserve</button>
         </div>
-      </div>
-    </div>
+      </div>      
+    </div>     
     <div class="col-sm-4 col-xs-12">
       <div class="panel panel-default text-center">
         <div class="panel-heading"  style=" height: 320px; overflow: hidden;">
@@ -294,8 +347,8 @@
           <h5 style=" text-align: justify; ">On his 11th birthday, Harry receives a letter inviting him to study magic at the Hogwarts School of Witchcraft and Wizardry. Harry discovers that not only is he a wizard, but he is a famous one. He meets two best friends, Ron Weasley and Hermione Granger, and makes his first enemy, Draco Malfoy.</h5>
           <button class="btn btn-lg">Reserve</button>
         </div>
-      </div>
-    </div>
+      </div>      
+    </div>       
     <div class="col-sm-4 col-xs-12">
       <div class="panel panel-default text-center">
         <div class="panel-heading"  style=" height: 320px; overflow: hidden;">
@@ -311,10 +364,10 @@
           <h5 style=" text-align: justify; ">On his 11th birthday, Harry receives a letter inviting him to study magic at the Hogwarts School of Witchcraft and Wizardry. Harry discovers that not only is he a wizard, but he is a famous one. He meets two best friends, Ron Weasley and Hermione Granger, and makes his first enemy, Draco Malfoy.</h5>
           <button class="btn btn-lg">Reserve</button>
         </div>
-      </div>
-    </div>
+      </div>      
+    </div>    
   </div>
-</div>
+</div> -->
 
     <!-- Container (Borrowings Section) -->
     <div id="borrowings" class="container-fluid text-center">
@@ -323,13 +376,10 @@
   <div class="row slideanim" align="center">
       <table border="0">
           <tr>
-              <th>BCN</th><th>ISBN</th><th>Book Name</th><th>Borrowed Date</th><th>Date to be Returned</th><th>Over-due</th>
+              <th>ISBN</th><th>Book Name</th><th>Borrowed Date</th>
           </tr>
-          <tr><td>10001</td><td>1002-2312-8889</td><td>Hansel and Gretal</td><td>12-12-2019</td><td>24-12-2019</td><td>2</td></tr>
-          <tr><td>10001</td><td>1002-2312-8889</td><td>Hansel and Gretal</td><td>12-12-2019</td><td>24-12-2019</td><td>2</td></tr>
-          <tr><td>10001</td><td>1002-2312-8889</td><td>Hansel and Gretal</td><td>12-12-2019</td><td>24-12-2019</td><td>2</td></tr>
-          <tr><td>10001</td><td>1002-2312-8889</td><td>Hansel and Gretal</td><td>12-12-2019</td><td>24-12-2019</td><td>2</td></tr>
-      </table>
+          <tr><td>9781984836106</td><td>Matilda</td><td>2021-11-11</td></tr>
+          </table>
 
     </div>
 </div>
@@ -342,13 +392,11 @@
   <div class="row slideanim" align="center" style=" height: 400px; overflow-y: scroll; ">
       <table border="0">
           <tr>
-              <th>BCN</th><th>Book Name</th><th>Author</th><th>Borrowed Date</th><th>Date to be Returned</th>
+              <th>ISBN</th><th>Book Name</th><th>Author</th><th>Borrowed Date</th><th>Date Returned</th>
           </tr>
-          <tr><td>10001</td><td>Hansel and Gretal</td><td>Carlos Varga</td><td>12-12-2019</td><td>24-12-2019</td></tr>
-          <tr><td>10001</td><td>Hansel and Gretal</td><td>Carlos Varga</td><td>12-12-2019</td><td>24-12-2019</td></tr>
-          <tr><td>10001</td><td>Hansel and Gretal</td><td>Carlos Varga</td><td>12-12-2019</td><td>24-12-2019</td></tr>
-          <tr><td>10001</td><td>Hansel and Gretal</td><td>Carlos Varga</td><td>12-12-2019</td><td>24-12-2019</td></tr>
-      </table>
+          <tr><td>9789006394262</td><td>Dume</td><td>Frank Herbet</td><td>12-12-2019</td><td>24-12-2019</td></tr>
+          <tr><td>9780747532743</td><td>Harry Potter and Chamber of Secrets</td><td>J K Rowlings</td><td>12-12-2019</td><td>24-12-2019</td></tr>
+          </table>
 
     </div>
 </div>
@@ -361,10 +409,10 @@
     <div class="col-sm-8 slideanim" align="center">
       <div class="row">
         <div class="col-sm-6 form-group">
-          <input class="form-control" id="firstname" name="firstname" type="text" required value="Rochana">
+          <input class="form-control" id="firstname" name="firstname" type="text" required value="Adam">
         </div>
         <div class="col-sm-6 form-group">
-          <input class="form-control" id="lastname" name="lastname" type="text" required value="Chathuranga">
+          <input class="form-control" id="lastname" name="lastname" type="text" required value="Levine">
         </div>
       </div>
          <div class="row">
@@ -379,7 +427,7 @@
         <input class="form-control" id="address" name="address" type="text" required value="0774864804"> <br>
       <div class="row">
         <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" type="email" required value="lmrchathuranga@gmail.com">
+          <input class="form-control" id="email" name="email" type="email" required value="adam@gmail.com">
         </div>
         <div class="col-sm-6 form-group">
           <input class="form-control" id="password" name="password" type="password" required value="Roch123">

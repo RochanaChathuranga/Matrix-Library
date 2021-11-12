@@ -1,359 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-<link rel="icon" href="Icons/Logo.jpg"/>
-  <title>Matrix LMS Member-Register</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style type="text/css">
-	body{
-		color: #fff;
-		background: #05B2E5;
-		font-family: 'Roboto', sans-serif;
-	}
-    .form-control{
-		height: 41px;
-		background: #f2f2f2;
-		box-shadow: none !important;
-		border: none;
-	}
-	.form-control:focus{
-		background: #e2e2e2;
-	}
-    .form-control, .btn{
-        border-radius: 3px;
-    }
-	.signup-form{
-		width: 390px;
-		margin: 30px auto;
-	}
-	.signup-form form{
-		color: #999;
-		border-radius: 3px;
-    	margin-bottom: 15px;
-        background: #fff;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        padding: 30px;
-    }
-	.signup-form h2 {
-		color: #333;
-		font-weight: bold;
-        margin-top: 0;
-    }
-    .signup-form hr {
-        margin: 0 -30px 20px;
-    }
-	.signup-form .form-group{
-		margin-bottom: 20px;
-	}
-	.signup-form input[type="checkbox"]{
-		margin-top: 3px;
-	}
-	.signup-form .row div:first-child{
-		padding-right: 10px;
-	}
-	.signup-form .row div:last-child{
-		padding-left: 10px;
-	}
-    .signup-form .btn{
-        font-size: 16px;
-        font-weight: bold;
-		background: #3598dc;
-		border: none;
-		min-width: 140px;
-    }
-	.signup-form .btn:hover, .signup-form .btn:focus{
-		background: #2389cd !important;
-        outline: none;
-	}
-    .signup-form a{
-		color: #fff;
-		text-decoration: underline;
-	}
-	.signup-form a:hover{
-		text-decoration: none;
-	}
-	.signup-form form a{
-		color: #3598dc;
-		text-decoration: none;
-	}
-	.signup-form form a:hover{
-		text-decoration: underline;
-	}
-    .signup-form .hint-text {
-		padding-bottom: 15px;
-		text-align: center;
-    }
-      h2 {
-    font-size: 24px;
-    text-transform: uppercase;
-    color: #303030;
-    font-weight: 600;
-    margin-bottom: 30px;
-  }
-  h4 {
-    font-size: 19px;
-    line-height: 1.375em;
-    color: #303030;
-    font-weight: 400;
-    margin-bottom: 30px;
-  }
-  .jumbotron {
-    background-color: #05B2E5;
-    color: #fff;
-    padding: 100px 25px;
-    font-family: Montserrat, sans-serif;
-  }
-  .container-fluid {
-    padding: 60px 50px;
-  }
-  .bg-grey {
-    background-color: #f6f6f6;
-  }
-  .logo-small {
-    color: #05B2E5;
-    font-size: 50px;
-  }
-  .logo {
-    color: #05B2E5;
-    font-size: 200px;
-  }
-  .thumbnail {
-    padding: 0 0 15px 0;
-    border: none;
-    border-radius: 0;
-  }
-  .thumbnail img {
-    width: 100%;
-    height: 100%;
-    margin-bottom: 10px;
-  }
-  .carousel-control.right, .carousel-control.left {
-    background-image: none;
-    color: #05B2E5;
-  }
-  .carousel-indicators li {
-    border-color: #05B2E5;
-  }
-  .carousel-indicators li.active {
-    background-color: #05B2E5;
-  }
-  .item h4 {
-    font-size: 19px;
-    line-height: 1.375em;
-    font-weight: 400;
-    font-style: italic;
-    margin: 70px 0;
-  }
-  .item span {
-    font-style: normal;
-  }
-  .panel {
-    border: 1px solid #f4511e;
-    border-radius:0 !important;
-    transition: box-shadow 0.5s;
-  }
-  .panel:hover {
-    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
-  }
-  .panel-footer .btn:hover {
-    border: 1px solid #f4511e;
-    background-color: #fff !important;
-    color: #05B2E5;
-  }
-  .panel-heading {
-    color: #fff !important;
-    background-color: #05B2E5 !important;
-    padding: 25px;
-    border-bottom: 1px solid transparent;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-  }
-  .panel-footer {
-    background-color: white !important;
-  }
-  .panel-footer h3 {
-    font-size: 32px;
-  }
-  .panel-footer h4 {
-    color: #aaa;
-    font-size: 14px;
-  }
-  .panel-footer .btn {
-    margin: 15px 0;
-    background-color: #05B2E5;
-    color: #fff;
-  }
-  .navbar {
-    margin-bottom: 0;
-    background-color: #05B2E5;
-    z-index: 9999;
-    border: 0;
-    font-size: 12px !important;
-    line-height: 1.42857143 !important;
-    letter-spacing: 4px;
-    border-radius: 0;
-    font-family: Montserrat, sans-serif;
-  }
-  .navbar li a, .navbar .navbar-brand {
-    color: #fff !important;
-  }
-  .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: #05B2E5 !important;
-    background-color: #fff !important;
-  }
-  .navbar-default .navbar-toggle {
-    border-color: transparent;
-    color: #fff !important;
-  }
-  footer .glyphicon {
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: #05B2E5;
-  }
-  .slideanim {visibility:hidden;}
-  .slide {
-    animation-name: slide;
-    -webkit-animation-name: slide;
-    animation-duration: 1s;
-    -webkit-animation-duration: 1s;
-    visibility: visible;
-  }
-  @keyframes slide {
-    0% {
-      opacity: 0;
-      transform: translateY(70%);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0%);
-    }
-  }
-  @-webkit-keyframes slide {
-    0% {
-      opacity: 0;
-      -webkit-transform: translateY(70%);
-    }
-    100% {
-      opacity: 1;
-      -webkit-transform: translateY(0%);
-    }
-  }
-  @media screen and (max-width: 768px) {
-    .col-sm-4 {
-      text-align: center;
-      margin: 25px 0;
-    }
-    .btn-lg {
-      width: 100%;
-      margin-bottom: 35px;
-    }
-  }
-  @media screen and (max-width: 480px) {
-    .logo {
-      font-size: 150px;
-    }
-  }
+	<title>Login</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
-</style>
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background: #05B2E5 !important;
+		}
+		.user_card {
+			width: 350px;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: #74cfbf;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+
+		}
+
+		.form_container {
+			margin-top: 20px;
+		}
+
+		#form-title{
+			color: #fff;
+		}
+		.login_btn {
+			width: 100%;
+			background: #33ccff !important;
+			color: white !important;
+		}
+		.login_btn:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+		.login_container {
+			padding: 0 2rem;
+		}
+		.input-group-text {
+			background: #f7ba5b !important;
+			color: white !important;
+			border: 0 !important;
+			border-radius: 0.25rem 0 0 0.25rem !important;
+		}
+		.input_user,
+		.input_pass:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
+
+	</style>
+
 </head>
 <body>
 
-    <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-        <img src="Icons/300.gif" width="90" height="90">  <h1><strong>L</strong>ibrary <strong>M</strong>anagement <strong>S</strong>ystem</h1> <p style="font-size:20px;">Member Sign Up...</p>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li style="background-color: deeppink; " ><a href="index.html"> H O M E </a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-    <br><br><br><br><br><br>
-    <div class="signup-form" >
-    <form action="" method="" name="form1">
-		<p>Please fill in this form to register!</p>
-		<hr>
-        <div class="form-group">
-			<div class="row">
-				<div class="col-xs-6"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
-				<div class="col-xs-6"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
+ 
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+					<h3 id="form-title">REGISTER ACCOUNT</h3>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+
+					<form method="POST" action="">
+            {% csrf_token %}
+
+            <div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							{{form.first_name}}
+						</div>
+
+            <div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							{{form.last_name}}
+						</div>
+
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							{{form.username}}
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+							</div>
+							{{form.email}}
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							{{form.password1}}
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							{{form.password2}}
+						</div>
+
+				   		<div class="d-flex justify-content-center mt-3 login_container">
+				 			<input class="btn login_btn" type="submit" value="Register Account">
+               
+            
+            </div>
+            <div class="d-flex justify-content-center links"></div></br>
+              <a href="index.html" class="ml-2">Go Back</a>
+
+              <div class="d-flex justify-content-center links">
+              Already have an account? <a href="LoginPage.html" class="ml-2">Login</a>
+              </div>
+              
+            </div>
+					</form>
+					
+					
+				</div>
+				</div>
 			</div>
-        </div>
-        <div class="form-group">
-        	<input type="date" class="form-control" name="dob" placeholder="Date of Birth" required="required">
-        </div>
-                <div class="form-group">
-        	<input type="text" class="form-control" name="nic" placeholder="NIC Number" required="required">
-        </div>
-                <div class="form-group">
-        	<input type="number" class="form-control" name="ContactNumber" placeholder="Contact Number " required="required">
-        </div>
-
-                <div class="form-group">
-        	<input type="text" class="form-control" name="address" placeholder="Personal Address" required="required">
-        </div>
-
-                <div class="form-group">
-        	<input type="email" class="form-control" name="email" placeholder="Email" required="required">
-        </div>
-		<div class="form-group">
-            <input type="password" class="form-control" name="password" id="password" onkeyup='check();' placeholder="Password" required="required">
-        </div>
-		<div class="form-group">
-            <input type="password" class="form-control" onkeyup='check();' id="confirm_password" name="confirm_password" placeholder="Confirm Password" required="required">
-        </div>
-
-        <div class="form-group">
-			<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
 		</div>
+	</div>
+	<script>
+						/* Because i didnt set placeholder values in forms.py they will be set here using vanilla Javascript
+		//We start indexing at one because CSRF_token is considered and input field 
+		 */
+
+		//Query All input fields
+		var form_fields = document.getElementsByTagName('input')
+		form_fields[1].placeholder='First Name..';
+    form_fields[2].placeholder='Last Name..';
+    form_fields[3].placeholder='Username..';
+		form_fields[4].placeholder='Email..';
+		form_fields[5].placeholder='Enter password...';
+		form_fields[6].placeholder='Re-enter Password...';
 
 
-                <script>
-         var check = function() {
-  if (document.getElementById('password').value ==
-    document.getElementById('confirm_password').value) {
-    document.getElementById('message').style.color = 'green';
-    document.getElementById('message').innerHTML = 'Matching.';
-  } else {
-    document.getElementById('message').style.color = 'red';
-    document.getElementById('message').innerHTML = 'Not matching!';
-  }
-}
-
-function check2() {
-  if (document.getElementById('password').value ==
-    document.getElementById('confirm_password').value) {
-    document.getElementById('message').style.color = 'green';
-    document.getElementById('message').innerHTML = 'Matching.';
-    return true;
-  } else {
-    document.getElementById('message').style.color = 'red';
-    document.getElementById('message').innerHTML = 'The password you entered DOES NOT MATCH!';
-    return false;
-  }
-}
-        </script>
-
-		<div class="form-group" align='center'>
-            <button type="submit" onclick="return check2()" class="btn btn-primary btn-lg"  >Sign Up</button>
-        </div>
-    </form>
-	<div class="hint-text" align="center">Already have an account? <a href="LoginPage.html">Login here</a></div>
-</div>
+		for (var field in form_fields){	
+			form_fields[field].className += ' form-control'
+		}
+	</script>
 </body>
 </html>

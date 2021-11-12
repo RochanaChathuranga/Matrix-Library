@@ -200,7 +200,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <img src="Icons/HomeLogo2.jpg" width="200" height="63" style=" box-shadow: 0 0 20px 20px white inset " >
+        {% load static %} <img src="{% static 'matrixlms/icons/HomeLogo2.jpg' %}" width="200" height="63" style=" box-shadow: 0 0 20px 20px white inset " >
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -215,7 +215,7 @@
 </nav>
 
 <div class="jumbotron text-center">
-    <h1> <img src="Icons//300.gif" width="150" height="150"> </h1>
+    <h1><img src="{% static 'matrixlms/icons/300.gif' %}" width="150" height="150"> </h1>
     <h1><strong>L</strong>ibrary <strong>M</strong>anagement <strong>S</strong>ystem</h1>
   <p>Knowledge is never complete.</p>
   <form>
@@ -234,16 +234,31 @@
       </div>
     </div>
   </form>
+  <!--<div class="row">
+          <div class = "col">
+            <div class = "card card-body">
+
+
+              <form method = "get">{{myFilter.form}}
+
+              </tb><button class ="btn btn-primary" type = "submit">
+                 Search
+                </button>
+
+
+              </form>
+            </div>
+          </div>
+        </div>-->
 </div>
 
-    <div id="pricing" class="container-fluid">
-
-  <div class="row slideanim">
+<div id="pricing" class="container-fluid">
+<div class="row slideanim">
     <div class="col-sm-4 col-xs-12">
       <div class="panel panel-default text-center">
           <div class="panel-heading" style=" height: 320px; overflow: hidden;">
           <h2 style="color: white;">Happy Potter</h2>
-          <img src="Books/c.jpg" width="150" height="200" alt=""/>
+          <img src="{% static 'matrixlms/books/d.jpg' %}" width="150" height="200" alt=""/>
         </div>
         <div class="panel-body">
           <p><strong>Author:</strong> J K Rowling</p>
@@ -252,7 +267,7 @@
         <div class="panel-footer" style=" height: 250px; overflow: hidden;">
           <h3>Description</h3>
           <h5 style=" text-align: justify; ">On his 11th birthday, Harry receives a letter inviting him to study magic at the Hogwarts School of Witchcraft and Wizardry. Harry discovers that not only is he a wizard, but he is a famous one. He meets two best friends, Ron Weasley and Hermione Granger, and makes his first enemy, Draco Malfoy.</h5>
-          <button class="btn btn-lg">Reserve</button>
+          <button class="btn btn-lg" disabled>Reserve</button>
         </div>
       </div>
     </div>
@@ -260,7 +275,7 @@
       <div class="panel panel-default text-center">
         <div class="panel-heading"  style=" height: 320px; overflow: hidden;">
           <h2 style="color: white;">Tale of Two Cities</h2>
-          <img src="Books/b.jpeg" width="150" height="200" alt=""/>
+          <img src="{% static 'matrixlms/books/f.jpg' %}"  width="150" height="200" alt=""/>
         </div>
         <div class="panel-body">
           <p><strong>Author:</strong> Charles Dickens</p>
@@ -268,30 +283,30 @@
         </div>
         <div class="panel-footer"  style=" height: 250px; overflow: hidden;">
           <h3>Description</h3>
-          <h5 style=" text-align: justify; ">On his 11th birthday, Harry receives a letter inviting him to study magic at the Hogwarts School of Witchcraft and Wizardry. Harry discovers that not only is he a wizard, but he is a famous one. He meets two best friends, Ron Weasley and Hermione Granger, and makes his first enemy, Draco Malfoy.</h5>
-          <button class="btn btn-lg">Reserve</button>
+          <h5 style=" text-align: justify; ">A Tale of Two Cities is an 1859 historical novel by Charles Dickens, set in London and Paris before and during the French Revolution. The novel tells the story of the French Doctor Manette, his 18-year-long imprisonment in the Bastille in Paris and his release to live in London with his daughter Lucie, whom he had never met.</h5>
+          <button class="btn btn-lg" disabled>Reserve</button>
         </div>
       </div>
     </div>
     <div class="col-sm-4 col-xs-12">
       <div class="panel panel-default text-center">
         <div class="panel-heading"  style=" height: 320px; overflow: hidden;">
-          <h2 style="color: white;">Little Red Riding Hood</h2>
-          <img src="Books/a.jpg"  width="150" height="200" alt=""/>
+          <h2 style="color: white;">Matilda</h2>
+          <img src="{% static 'matrixlms/books/e.jpg' %}" width="150" height="200" alt=""/>
         </div>
         <div class="panel-body">
-          <p><strong>Author:</strong> Charles Perrault, the Brothers Grimm</p>
+          <p><strong>Author:</strong> Roald Dahl</p>
           <p><strong>Category:</strong> Kids</p>
         </div>
         <div class="panel-footer"  style=" height: 250px; overflow: hidden;">
           <h3>Description</h3>
-          <h5 style=" text-align: justify; ">On his 11th birthday, Harry receives a letter inviting him to study magic at the Hogwarts School of Witchcraft and Wizardry. Harry discovers that not only is he a wizard, but he is a famous one. He meets two best friends, Ron Weasley and Hermione Granger, and makes his first enemy, Draco Malfoy.</h5>
-          <button class="btn btn-lg">Reserve</button>
+          <h5 style=" text-align: justify; ">Matilda is a book by British writer Roald Dahl. It was published in 1988 by Jonathan Cape in London, with 232 pages and illustrations by Quentin Blake. It was adapted as an audio reading by actress Kate Winslet; a 1996 feature film directed by Danny DeVito; a two-part BBC Radio 4 programme</h5>
+          <button class="btn btn-lg" disabled>Reserve</button>
         </div>
       </div>
     </div>
-  </div>
 </div>
+
 
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
@@ -303,7 +318,7 @@
 
     </div>
     <div class="col-sm-4">
-        <span><img src="Icons/Intro.png" width="350" height="300" style="border-radius: 170px;  " alt=""/></span>
+        <span><img src="{% static 'matrixlms/icons/Intro.png' %}" width="350" height="300" style="border-radius: 170px;  " alt=""/></span>
     </div>
   </div>
 </div>
@@ -340,7 +355,7 @@
     <div class="col-sm-4">
       <div class="thumbnail">
           <h1 style="color: red;"><b>#1</b></h1>
-        <img src="Books/a.jpg" style=" width: 380px; height: 600px; " alt=""/>
+        <img src="{% static 'matrixlms/books/a.jpg' %}" style=" width: 380px; height: 600px; " alt=""/>
         <p><strong>Jungle Book</strong></p>
         <p>Anie Clark</p>
       </div>
@@ -348,7 +363,7 @@
     <div class="col-sm-4">
       <div class="thumbnail">
           <h1 style="color: red;"><b>#2</b></h1>
-        <img src="Books/b.jpeg"  style=" width: 380px; height: 600px; " alt=""/>
+        <img src="{% static 'matrixlms/books/b.jpeg' %}"  style=" width: 380px; height: 600px; " alt=""/>
         <p><strong>Dark Minds</strong></p>
         <p>Randy Mc Millan</p>
       </div>
@@ -356,7 +371,7 @@
     <div class="col-sm-4">
       <div class="thumbnail">
           <h1 style="color: red;"><b>#3</b></h1>
-        <img src="Books/c.jpg"  style=" width: 380px; height: 600px; " alt=""/>
+        <img src="{% static 'matrixlms/books/c.jpg' %}"  style=" width: 380px; height: 600px; " alt=""/>
         <p><strong>Hobbit</strong></p>
         <p>Thain Orkanshield</p>
       </div>
